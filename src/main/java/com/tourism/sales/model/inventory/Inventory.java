@@ -1,6 +1,6 @@
 package com.tourism.sales.model.inventory;
 
-import java.util.Date;
+
 import java.time.Instant;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +9,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import com.tourism.sales.model.common.BaseEntity;
+import com.tourism.sales.model.common.Date;
 import com.tourism.sales.model.hotel.RoomType;
 import com.tourism.sales.model.place.Node;
 
@@ -20,13 +21,15 @@ public class Inventory extends BaseEntity{
   @Column(name = "name")
   private String name;
   
-  @NotNull
-  @Column(name = "from")
+  @ManyToOne
   private Date from;
   
+  @ManyToOne
+  private Date to; 
+  
   @NotNull
-  @Column(name = "to")
-  private Date to;  
+  @Column(name = "stopsales")
+  private boolean stopSales;
   
   @ManyToOne
   private RoomType roomType;  
@@ -36,16 +39,18 @@ public class Inventory extends BaseEntity{
 
   public Inventory() {
     super();
+    stopSales = false;
   }
 
   public Inventory(String id, Instant createdAt, Instant modifiedAt, int version,
-      String name, Date from, Date to, RoomType roomType, Node owner) {
+      String name, Date from, Date to, RoomType roomType, Node owner,boolean stopSales) {
     super(id, createdAt, modifiedAt, version);
     this.name = name;
     this.from = from;
     this.to = to;
     this.roomType = roomType;
     this.owner = owner;    
+    this.stopSales = stopSales;
   }
 
   public String getName() {
@@ -87,11 +92,21 @@ public class Inventory extends BaseEntity{
   public void setOwner(Node owner) {
     this.owner = owner;
   }
+  
+  
+
+  public boolean isStopSales() {
+    return stopSales;
+  }
+
+  public void setStopSales(boolean stopSales) {
+    this.stopSales = stopSales;
+  }
 
   @Override
   public String toString() {
-    return "Inventory [name=" + name + ", from=" + from + ", to=" + to + ", roomType=" + roomType.toString()
-        + ", owner=" + owner.toString() + ", id=" + id + ", createdAt=" + createdAt + ", modifiedAt="
-        + modifiedAt + ", version=" + version + "]";
+    return "Inventory [name=" + name + ", from=" + from + ", to=" + to + ", stopSales=" + stopSales
+        + ", roomType=" + roomType + ", owner=" + owner + ", id=" + id + ", createdAt=" + createdAt
+        + ", modifiedAt=" + modifiedAt + ", version=" + version + "]";
   }  
 }

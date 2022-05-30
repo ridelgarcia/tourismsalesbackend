@@ -9,7 +9,8 @@ import com.tourism.sales.model.common.BaseEntity;
 @Table(name = "[user]")
 public class User extends BaseEntity {	
 
-	
+    @Column(name = "externalid")
+    private String externalId;
 
 	@Column(name = "email")
 	private String email;
@@ -25,9 +26,11 @@ public class User extends BaseEntity {
 		super();
 	}
 
-	public User(String id, Instant createdAt, Instant modifiedAt, int version, String email, String password,Role role) {
+	public User(String id, Instant createdAt, Instant modifiedAt, int version,
+	    String externalId,String email, String password,Role role) {
 		super(id,createdAt,modifiedAt,version);
 		
+		this.externalId = externalId;
         this.email = email;
         this.password = password;
         this.role = role;
@@ -56,11 +59,19 @@ public class User extends BaseEntity {
 		this.role = role;
 	}
 
-  @Override
-  public String toString() {
-    return "User [email=" + email + ", password=" + password + ", role=" + role + ", id=" + id
-        + ", createdAt=" + createdAt + ", modifiedAt=" + modifiedAt + ", version=" + version + "]";
-  }
-	
+    public String getExternalId() {
+      return externalId;
+    }
+  
+    public void setExternalId(String externalId) {
+      this.externalId = externalId;
+    }
+
+    @Override
+    public String toString() {
+      return "User [externalId=" + externalId + ", email=" + email + ", password=" + password
+          + ", role=" + role + ", id=" + id + ", createdAt=" + createdAt + ", modifiedAt="
+          + modifiedAt + ", version=" + version + "]";
+    }	
 }
 

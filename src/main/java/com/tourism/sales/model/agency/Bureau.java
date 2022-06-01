@@ -5,6 +5,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.validation.constraints.Null;
+import com.tourism.sales.common.NodeType;
 import com.tourism.sales.model.place.Location;
 import com.tourism.sales.model.place.Node;
 
@@ -18,12 +19,12 @@ public class Bureau extends Node{
   
   public Bureau() {
     super();
-    this.type = Node.NodeType.BUREAU;
+    this.type = NodeType.BUREAU;
   }
 
   public Bureau(String id, Instant createdAt, Instant modifiedAt, int version, String name,
       String parentId, Location location,String phone) {
-    super(id, createdAt, modifiedAt, version, name, Node.NodeType.BUREAU, parentId, location);
+    super(id, createdAt, modifiedAt, version, name, NodeType.BUREAU, parentId, location);
     this.phone = phone;    
   }
 

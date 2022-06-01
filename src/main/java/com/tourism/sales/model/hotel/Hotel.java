@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
+import com.tourism.sales.common.NodeType;
 import com.tourism.sales.model.place.Location;
 import com.tourism.sales.model.place.Node;
 
@@ -35,7 +36,7 @@ public class Hotel extends Node{
 
   public Hotel() {
     super();
-    this.type = Node.NodeType.HOTEL;    
+    this.type = NodeType.HOTEL;    
   }
 
   public Hotel(String id, Instant createdAt, Instant modifiedAt, int version, String name,

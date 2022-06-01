@@ -5,6 +5,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.validation.constraints.Null;
+import com.tourism.sales.common.NodeType;
 import com.tourism.sales.model.place.Location;
 import com.tourism.sales.model.place.Node;
 
@@ -22,12 +23,12 @@ public class BranchOffice extends Node{
 
   public BranchOffice() {
     super();
-    this.type = Node.NodeType.BRANCH_OFFICE;
+    this.type = NodeType.BRANCH_OFFICE;
   }
 
   public BranchOffice(String id, Instant createdAt, Instant modifiedAt, int version, String name,
       String parentId, Location location,String phone, String email) {
-    super(id, createdAt, modifiedAt, version, name, Node.NodeType.BRANCH_OFFICE, parentId, location);
+    super(id, createdAt, modifiedAt, version, name, NodeType.BRANCH_OFFICE, parentId, location);
     this.phone = phone;
     this.email = email;
   }

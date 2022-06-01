@@ -5,12 +5,13 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.validation.constraints.Null;
+import com.tourism.sales.common.NodeType;
 import com.tourism.sales.model.place.Location;
 import com.tourism.sales.model.place.Node;
 
 @Entity
 @Table(name = "[travelagency]")
-public class TravelAgency extends Node{
+public class TravelAgency extends Node {
 
   @Null
   @Column(name = "phone")
@@ -22,12 +23,12 @@ public class TravelAgency extends Node{
 
   public TravelAgency() {
     super();
-    this.type = Node.NodeType.TRAVEL_AGENCY;
+    this.type = NodeType.TRAVEL_AGENCY;
   }
 
   public TravelAgency(String id, Instant createdAt, Instant modifiedAt, int version, String name,
       String parentId, Location location,String phone, String email) {
-    super(id, createdAt, modifiedAt, version, name, Node.NodeType.TRAVEL_AGENCY, parentId, location);
+    super(id, createdAt, modifiedAt, version, name, NodeType.TRAVEL_AGENCY, parentId, location);
     this.phone = phone;
     this.email = email;
   }

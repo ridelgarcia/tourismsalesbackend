@@ -11,22 +11,13 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
+import com.tourism.sales.common.NodeType;
 import com.tourism.sales.model.common.BaseEntity;
 
 @Entity
 @Table(name = "[node]")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Node extends BaseEntity {
-	
-	public enum NodeType{
-		COUNTRY,
-		TRAVEL_AGENCY,
-		BRANCH_OFFICE,
-		BUREAU,
-		DESTINATION,
-		HOTEL
-		
-	}
 	
 	@Null
 	@Column(name = "name")

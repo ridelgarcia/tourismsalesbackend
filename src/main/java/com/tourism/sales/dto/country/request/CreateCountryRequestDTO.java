@@ -9,13 +9,12 @@ public class CreateCountryRequestDTO extends CreateNodeRequestDTO{
 
   public CreateCountryRequestDTO() {
     super();
-    
+    setType(NodeType.COUNTRY);
   }
 
   public CreateCountryRequestDTO(@NotEmpty @NotBlank String name,
-      @NotEmpty @NotBlank String location, @NotEmpty @NotBlank String parentId,
-      @NotEmpty @NotBlank NodeType type) {
-    super(name, location, parentId, type);
+      @NotEmpty @NotBlank String location, @NotEmpty @NotBlank String parentId) {
+    super(name, location, parentId, NodeType.COUNTRY);
     
   }
 

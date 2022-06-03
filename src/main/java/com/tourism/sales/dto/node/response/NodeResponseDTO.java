@@ -27,7 +27,7 @@ public class NodeResponseDTO extends APIResponseDTO{
   @JsonProperty(required = true)
   @NotEmpty
   @NotBlank
-  protected String parentId;
+  protected String parent;
   
   @JsonProperty(required = true)
   @NotEmpty
@@ -39,12 +39,12 @@ public class NodeResponseDTO extends APIResponseDTO{
   }
 
   public NodeResponseDTO(int errorCode, String errorDescription,String id,String name,
-      NodeType type,String parentId,LocationResponseDTO location) {
+      NodeType type,String parent,LocationResponseDTO location) {
     super(errorCode, errorDescription);
     this.id = id;
     this.name = name;
     this.type = type;
-    this.parentId = parentId;
+    this.parent = parent;
     this.location = location;
   }
 
@@ -72,12 +72,12 @@ public class NodeResponseDTO extends APIResponseDTO{
     this.type = type;
   }
 
-  public String getParentId() {
-    return parentId;
+  public String getParent() {
+    return parent;
   }
 
-  public void setParentId(String parentId) {
-    this.parentId = parentId;
+  public void setParent(String parent) {
+    this.parent = parent;
   }
 
   public LocationResponseDTO getLocation() {
@@ -91,7 +91,7 @@ public class NodeResponseDTO extends APIResponseDTO{
   @Override
   public String toString() {
     return "NodeResponseDTO [id=" + id + ", name=" + name + ", type=" + type + ", parentId="
-        + parentId + ", location=" + location.toString() + ", errorCode=" + errorCode + ", errorDescription="
+        + parent + ", location=" + location.toString() + ", errorCode=" + errorCode + ", errorDescription="
         + errorDescription + "]";
   }
   

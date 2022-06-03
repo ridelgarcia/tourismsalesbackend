@@ -28,8 +28,8 @@ public class Node extends BaseEntity {
 	protected NodeType type;
 	
 	@Null
-	@Column(name = "parentid")
-	protected String parentId;
+	@Column(name = "parent")
+	protected String parent;
 	
 	@Null
 	@OneToOne
@@ -39,11 +39,11 @@ public class Node extends BaseEntity {
 		super();
 	}
 
-  public Node(String id, Instant createdAt, Instant modifiedAt, int version,String name, NodeType type, String parentId, Location location) {
+  public Node(String id, Instant createdAt, Instant modifiedAt, int version,String name, NodeType type, String parent, Location location) {
     super(id, createdAt, modifiedAt, version);
     this.name = name;
     this.type = type;
-    this.parentId = parentId;
+    this.parent = parent;
     this.location = location;
   }
 
@@ -63,12 +63,12 @@ public class Node extends BaseEntity {
     this.type = type;
   }
 
-  public String getParentId() {
-    return parentId;
+  public String getParent() {
+    return parent;
   }
 
-  public void setParentId(String parentId) {
-    this.parentId = parentId;
+  public void setParent(String parent) {
+    this.parent = parent;
   }
 
   public Location getLocation() {
@@ -81,7 +81,7 @@ public class Node extends BaseEntity {
 
   @Override
   public String toString() {
-    return "Node [name=" + name + ", type=" + type + ", parentId=" + parentId + ", location="
+    return "Node [name=" + name + ", type=" + type + ", parentId=" + parent + ", location="
         + location + ", id=" + id + ", createdAt=" + createdAt + ", modifiedAt=" + modifiedAt
         + ", version=" + version + "]";
   }	

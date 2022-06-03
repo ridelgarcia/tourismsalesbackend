@@ -15,12 +15,13 @@ public class CreateBureauRequestDTO extends CreateNodeRequestDTO{
 
   public CreateBureauRequestDTO() {
     super();
+    setType(NodeType.BUREAU);
   }
 
   public CreateBureauRequestDTO(@NotEmpty @NotBlank String name,
       @NotEmpty @NotBlank String location, @NotEmpty @NotBlank String parentId,
-      @NotEmpty @NotBlank NodeType type,@NotEmpty @NotBlank String phone) {
-    super(name, location, parentId, type);
+      @NotEmpty @NotBlank String phone) {
+    super(name, location, parentId, NodeType.BUREAU);
     this.phone = phone;
   }
 

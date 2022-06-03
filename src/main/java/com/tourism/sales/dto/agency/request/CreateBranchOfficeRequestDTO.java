@@ -20,14 +20,13 @@ public class CreateBranchOfficeRequestDTO extends CreateNodeRequestDTO{
 
   public CreateBranchOfficeRequestDTO() {
     super();
-    
+    setType(NodeType.BRANCH_OFFICE);
   }
 
   public CreateBranchOfficeRequestDTO(@NotEmpty @NotBlank String name,
       @NotEmpty @NotBlank String location, @NotEmpty @NotBlank String parentId,
-      @NotEmpty @NotBlank NodeType type, @NotEmpty @NotBlank String phone,
-      @NotEmpty @NotBlank String email) {
-    super(name, location, parentId, type);
+      @NotEmpty @NotBlank String phone, @NotEmpty @NotBlank String email) {
+    super(name, location, parentId, NodeType.BRANCH_OFFICE);
     this.phone = phone;
     this.email = email;
   }

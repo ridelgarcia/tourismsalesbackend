@@ -2,6 +2,7 @@ package com.tourism.sales.dto.node.request;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.tourism.sales.common.NodeType;
 
@@ -20,23 +21,21 @@ public class CreateNodeRequestDTO {
   @JsonProperty(required = true)
   @NotEmpty
   @NotBlank
-  protected String parentId;
+  protected String parent;
   
-  @JsonProperty(required = true)
-  @NotEmpty
-  @NotBlank
-  protected NodeType type;
+  @JsonIgnore
+  private NodeType type;
 
   public CreateNodeRequestDTO() {
     super();
   }
 
   public CreateNodeRequestDTO(@NotEmpty @NotBlank String name, @NotEmpty @NotBlank String location,
-      @NotEmpty @NotBlank String parentId,@NotEmpty @NotBlank NodeType type) {
+      @NotEmpty @NotBlank String parent,@NotEmpty @NotBlank NodeType type) {
     super();
     this.name = name;
     this.location = location;
-    this.parentId = parentId;
+    this.parent = parent;
     this.type = type;
   }
 
@@ -56,12 +55,12 @@ public class CreateNodeRequestDTO {
     this.location = location;
   }
 
-  public String getParentId() {
-    return parentId;
+  public String getParent() {
+    return parent;
   }
 
-  public void setParentId(String parentId) {
-    this.parentId = parentId;
+  public void setParentId(String parent) {
+    this.parent = parent;
   }
 
   public NodeType getType() {
@@ -75,7 +74,7 @@ public class CreateNodeRequestDTO {
   @Override
   public String toString() {
     return "CreateNodeRequestDTO [name=" + name + ", location=" + location + ", parentId="
-        + parentId + ", type=" + type + "]";
+        + parent + ", type=" + type + "]";
   } 
 
 }

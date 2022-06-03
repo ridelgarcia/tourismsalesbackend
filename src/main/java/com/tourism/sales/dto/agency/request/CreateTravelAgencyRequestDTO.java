@@ -20,13 +20,14 @@ public class CreateTravelAgencyRequestDTO extends CreateNodeRequestDTO{
 
   public CreateTravelAgencyRequestDTO() {
     super();
+    setType(NodeType.TRAVEL_AGENCY);
   }
 
   public CreateTravelAgencyRequestDTO(@NotEmpty @NotBlank String name,
       @NotEmpty @NotBlank String location, @NotEmpty @NotBlank String parentId,
-      @NotEmpty @NotBlank NodeType type,@NotEmpty @NotBlank String phone,
+      @NotEmpty @NotBlank String phone,
       @NotEmpty @NotBlank String email) {
-    super(name, location, parentId, type);
+    super(name, location, parentId, NodeType.TRAVEL_AGENCY);
     this.phone = phone;
     this.email = email;
   }

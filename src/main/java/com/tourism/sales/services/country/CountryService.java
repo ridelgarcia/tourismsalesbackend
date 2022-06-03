@@ -32,9 +32,7 @@ public class CountryService {
         APIResponseDTO res = locationSrv.createLocation(createLoc);
         if(res.getErrorCode() == 0) {
           Location location = modelMapper.map((LocationResponseDTO)res, Location.class);
-          Country country = new Country();
-          country.setName(createDto.getName());
-          country.setParentId(createDto.getParentId());
+          Country country = modelMapper.map(createDto,Country.class);
           country.setLocation(location);
           countryRep.save(country);
           response = modelMapper.map(country, CountryResponseDTO.class);        

@@ -10,22 +10,22 @@ public class CreateNodeRequestDTO {
   @JsonProperty(required = true)
   @NotEmpty
   @NotBlank
-  private String name;
+  protected String name;
   
   @JsonProperty(required = true)
   @NotEmpty
   @NotBlank
-  private String location;
+  protected String location;
   
   @JsonProperty(required = true)
   @NotEmpty
   @NotBlank
-  private String parentId;
+  protected String parentId;
   
   @JsonProperty(required = true)
   @NotEmpty
   @NotBlank
-  private NodeType type;
+  protected NodeType type;
 
   public CreateNodeRequestDTO() {
     super();

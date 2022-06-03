@@ -11,7 +11,7 @@ import com.tourism.sales.model.place.Node;
 
 @Entity
 @Table(name = "[branchoffice]")
-public class BranchOffice extends Node{
+public class BranchOffice extends Node {
 
   @Null
   @Column(name = "phone")
